@@ -15,11 +15,11 @@ spring:
 
 
 #对于rabbitMQ的支持
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
 
 #    listener:
 #      direct:
