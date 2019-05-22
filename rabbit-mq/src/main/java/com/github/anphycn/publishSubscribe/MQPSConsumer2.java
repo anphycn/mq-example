@@ -1,4 +1,4 @@
-package com.github.anphycn.controller.helloworld;
+package com.github.anphycn.publishSubscribe;
 
 
 import org.slf4j.Logger;
@@ -7,15 +7,13 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-
 @Component
-@RabbitListener(queues = "helloWorldQueue")
-public class HelloWorldConsumer {
-    protected static Logger logger = LoggerFactory.getLogger(HelloWorldConsumer.class);
+public class MQPSConsumer2 {
+    protected static Logger logger = LoggerFactory.getLogger(MQPSConsumer2.class);
 
+    @RabbitListener(queues = "PSQueueB")
     @RabbitHandler
     public void helloWorldConsumer(String context) {
-        logger.debug(LocalDateTime.now() + "helloWorldConsumer : " + context);
+        logger.info("PSQueueB【消费者2】: " + context);
     }
 }

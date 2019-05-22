@@ -1,4 +1,4 @@
-package com.github.anphycn.conf;
+package com.github.anphycn.helloworld;
 
 
 import org.springframework.amqp.core.Queue;

@@ -1,4 +1,4 @@
-package com.github.anphycn.controller.helloworld;
+package com.github.anphycn.helloworld;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
-
 @RestController
-public class HelloWorldProducerController {
+public class HelloWorldProducer {
 
-    protected static Logger logger= LoggerFactory.getLogger(HelloWorldProducerController.class);
+    protected static Logger logger= LoggerFactory.getLogger(HelloWorldProducer.class);
 
 //    @Autowired
 //    private HelloWorldSend helloWorldSend;
@@ -23,12 +21,16 @@ public class HelloWorldProducerController {
         return send(context);
     }
 
+
+
+
     @Autowired
     private AmqpTemplate rabbitTemplate;
 
     public String send(String context) {
-        logger.debug(LocalDateTime.now() + "HelloWorldProducer: " + context);
+        System.out.println("================================================================================================================================================");
         this.rabbitTemplate.convertAndSend("helloWorldQueue", context);
+        logger.info("helloWorldQueue【生产者】: " + context);
         return context;
     }
 }
