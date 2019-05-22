@@ -33,6 +33,7 @@ public class MQPSConfig {
 
 
     //交换机(Exchange)
+    //既使autoDelete=true，如果有绑定的队列存在，也不会执行自动删除
     @Bean
     FanoutExchange fanoutExchange() {
         return new FanoutExchange("fanoutExchange");

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Publish/Subscribe 发布/订阅模式
+ * Topics——主题模式
  */
 @Configuration
 public class MQTopicConfig {
@@ -34,7 +34,8 @@ public class MQTopicConfig {
 
 
 
-    //直接交换机
+    //主题交换机
+    //既使autoDelete=true，如果有绑定的队列存在，也不会执行自动删除
     @Bean
     TopicExchange topicExchange() {
         return new TopicExchange("topicExchange");
@@ -47,21 +48,21 @@ public class MQTopicConfig {
     //＃（散列）可以代替零个或多个单词。
     @Bean
     Binding bindingDirectExchangeA(Queue TopicQueueA, TopicExchange topicExchange) {
-        return BindingBuilder.bind(TopicQueueA).to(topicExchange).with("");
+        return BindingBuilder.bind(TopicQueueA).to(topicExchange).with("msg");
     }
 
     @Bean
     Binding bindingDirectExchangeB(Queue TopicQueueB, TopicExchange topicExchange) {
-        return BindingBuilder.bind(TopicQueueB).to(topicExchange).with("topic.message");
+        return BindingBuilder.bind(TopicQueueB).to(topicExchange).with("msg.*");
     }
 
     @Bean
     Binding bindingDirectExchangeC(Queue TopicQueueC, TopicExchange topicExchange) {
-        return BindingBuilder.bind(TopicQueueC).to(topicExchange).with("topic.#");
+        return BindingBuilder.bind(TopicQueueC).to(topicExchange).with("msg.#");
     }
 
     @Bean
     Binding bindingDirectExchangeD(Queue TopicQueueD, TopicExchange topicExchange) {
-        return BindingBuilder.bind(TopicQueueD).to(topicExchange).with("topic.*");
+        return BindingBuilder.bind(TopicQueueD).to(topicExchange).with("");
     }
 }
