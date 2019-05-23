@@ -13,15 +13,11 @@ public class MQWQProducer {
 
     protected static Logger logger= LoggerFactory.getLogger(MQWQProducer.class);
 
-//    @Autowired
-//    private HelloWorldSend helloWorldSend;
 
     @RequestMapping("/wq/send/{context}")
     public String helloWorldSend(@PathVariable String context) {
         return send(context);
     }
-
-
 
 
     @Autowired

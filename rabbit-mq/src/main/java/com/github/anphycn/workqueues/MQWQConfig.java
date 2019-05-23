@@ -13,6 +13,6 @@ public class MQWQConfig {
 
     @Bean
     public Queue WorkQueues() {
-        return new Queue("WorkQueues",true,true,true);
+        return new Queue("WorkQueues");
     }
 }

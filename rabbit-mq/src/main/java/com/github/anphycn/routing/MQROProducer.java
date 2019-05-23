@@ -13,8 +13,6 @@ public class MQROProducer {
 
     protected static Logger logger= LoggerFactory.getLogger(MQROProducer.class);
 
-//    @Autowired
-//    private HelloWorldSend helloWorldSend;
 
     @RequestMapping("/ro/send/{rouingKey}/{context}")
     public String helloWorldSend(@PathVariable String rouingKey,@PathVariable String context) {

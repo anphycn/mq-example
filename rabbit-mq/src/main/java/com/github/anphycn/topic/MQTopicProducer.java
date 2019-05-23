@@ -13,15 +13,11 @@ public class MQTopicProducer {
 
     protected static Logger logger= LoggerFactory.getLogger(MQTopicProducer.class);
 
-//    @Autowired
-//    private HelloWorldSend helloWorldSend;
 
     @RequestMapping("/topic/send/{rouingKey}/{context}")
     public String helloWorldSend(@PathVariable String rouingKey,@PathVariable String context) {
         return send(rouingKey,context);
     }
-
-
 
 
     @Autowired

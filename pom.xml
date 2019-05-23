@@ -17,9 +17,6 @@
 
     <modules>
         <module>rabbit-mq</module>
-        <module>rocket-mq</module>
-        <module>websocket-example</module>
-        <module>rabbit-mq-consumer</module>
     </modules>
 
 

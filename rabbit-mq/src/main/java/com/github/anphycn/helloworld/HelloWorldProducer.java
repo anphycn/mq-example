@@ -13,8 +13,6 @@ public class HelloWorldProducer {
 
     protected static Logger logger= LoggerFactory.getLogger(HelloWorldProducer.class);
 
-//    @Autowired
-//    private HelloWorldSend helloWorldSend;
 
     @RequestMapping("/send/{context}")
     public String helloWorldSend(@PathVariable String context) {

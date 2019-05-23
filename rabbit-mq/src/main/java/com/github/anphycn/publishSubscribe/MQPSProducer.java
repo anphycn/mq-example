@@ -13,8 +13,6 @@ public class MQPSProducer {
 
     protected static Logger logger= LoggerFactory.getLogger(MQPSProducer.class);
 
-//    @Autowired
-//    private HelloWorldSend helloWorldSend;
 
     @RequestMapping("/ps/send/{context}")
     public String helloWorldSend(@PathVariable String context) {
